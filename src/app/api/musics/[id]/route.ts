@@ -1,13 +1,12 @@
 import { NextResponse } from "next/server";
 import db from "@/lib/db";
 
-// DELETE: Hapus data berdasarkan ID
 export async function DELETE(
   request: Request,
-  { params }: { params: Promise<{ id: string }> } // Update untuk Next.js terbaru
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = await params; // Await params
+    const { id } = await params;
 
     const stmt = db.prepare('DELETE FROM musics WHERE id = ?');
     const info = stmt.run(id);
@@ -22,7 +21,6 @@ export async function DELETE(
   }
 }
 
-// PUT: Update data berdasarkan ID
 export async function PUT(
   request: Request,
   { params }: { params: Promise<{ id: string }> }

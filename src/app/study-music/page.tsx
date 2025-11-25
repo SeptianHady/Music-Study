@@ -15,7 +15,6 @@ type Music = {
 export default function StudyMusicPage() {
   const [musics, setMusics] = useState<Music[]>([]);
   
-  // State Form
   const [formData, setFormData] = useState({
     title: "",
     artist: "",
@@ -24,7 +23,6 @@ export default function StudyMusicPage() {
     spotify_link: "",
   });
 
-  // State Tambahan untuk Edit Mode
   const [editId, setEditId] = useState<number | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -42,7 +40,6 @@ export default function StudyMusicPage() {
     fetchMusics();
   }, []);
 
-  // --- 2. HANDLE DELETE ---
   async function handleDelete(id: number) {
     if(!confirm("Yakin ingin menghapus lagu ini?")) return;
 
@@ -56,7 +53,6 @@ export default function StudyMusicPage() {
     }
   }
 
-  // Fungsi ini dipanggil saat tombol "Edit" diklik
   function handleEdit(music: Music) {
     setEditId(music.id);
     setFormData({
@@ -110,7 +106,6 @@ export default function StudyMusicPage() {
       </div>
 
       <div className="row g-4">
-        {/* FORM INPUT / EDIT */}
         <div className="col-md-4">
           <div className={`card shadow-sm border-${editId ? 'primary' : 'success'}`}>
             <div className={`card-header text-white fw-bold ${editId ? 'bg-primary' : 'bg-success'}`}>
@@ -180,7 +175,6 @@ export default function StudyMusicPage() {
           </div>
         </div>
 
-        {/* LIST DATA */}
         <div className="col-md-8">
           {musics.length === 0 ? (
             <div className="alert alert-info text-center">Belum ada data musik.</div>
@@ -198,7 +192,6 @@ export default function StudyMusicPage() {
                     <span className="badge bg-light text-dark border">{m.mood}</span>
                   </div>
                   
-                  {/* Tombol Aksi (Edit & Delete) */}
                   <div className="btn-group">
                     <button 
                       className="btn btn-outline-warning btn-sm"

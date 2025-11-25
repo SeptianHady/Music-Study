@@ -12,23 +12,19 @@ type Music = {
   spotify_link?: string;
 };
 
-// Next.js 15: params adalah Promise
 export default function MusicDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = use(params); // Unboxing params
   const [music, setMusic] = useState<Music | null>(null);
 
   useEffect(() => {
-    // Ambil data detail lagu
     fetch(`/api/musics`)
       .then((res) => res.json())
       .then((data) => {
-        // Cari lagu yang ID-nya cocok
         const found = data.find((m: Music) => m.id === Number(resolvedParams.id));
         setMusic(found || null);
       });
   }, [resolvedParams.id]);
 
-  // Fungsi mengubah Link Biasa menjadi Link Embed Spotify
   const getYoutubeEmbedUrl = (url: string) => {
     if (!url) return null;
 
@@ -57,7 +53,6 @@ export default function MusicDetailPage({ params }: { params: Promise<{ id: stri
             <span className="badge bg-warning text-dark">{music.mood}</span>
           </div>
 
-          {/* PLAYER YOUTUBE BARU */}
           <div className="ratio ratio-16x9 mb-4 shadow-sm" style={{ borderRadius: "12px", overflow: "hidden" }}>
              {music.spotify_link && getYoutubeEmbedUrl(music.spotify_link) ? (
                <iframe

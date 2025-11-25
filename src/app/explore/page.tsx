@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
-// Tipe data sesuai response API DummyJSON
 type Quote = {
   id: number;
   quote: string;
@@ -14,11 +13,9 @@ export default function ExplorePage() {
   const [quote, setQuote] = useState<Quote | null>(null);
   const [loading, setLoading] = useState(false);
 
-  // Fungsi Fetch ke External API
   async function getMotivation() {
     setLoading(true);
     try {
-      // Kita pakai API DummyJSON (Gratis & Stabil)
       const res = await fetch('https://dummyjson.com/quotes/random');
       const data = await res.json();
       setQuote(data);
@@ -29,7 +26,6 @@ export default function ExplorePage() {
     }
   }
 
-  // Ambil quote otomatis saat halaman dibuka
   useEffect(() => {
     getMotivation();
   }, []);
