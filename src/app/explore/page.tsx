@@ -34,7 +34,7 @@ export default function ExplorePage() {
     <div className="container d-flex flex-column justify-content-center align-items-center vh-100">
       
       <div className="text-center mb-5">
-        <h1 className="fw-bold display-5 text-primary">🚀 Mood Booster</h1>
+        <h1 className="fw-bold display-5 text-primary">Mood Booster</h1>
         <p className="text-muted">Sedang lelah belajar? Cari inspirasi di sini.</p>
       </div>
 
