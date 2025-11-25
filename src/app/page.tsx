@@ -1,95 +1,52 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <main className="container d-flex flex-column justify-content-center align-items-center vh-100">
+      {/* Card Utama */}
+      <div className="card text-center shadow-lg p-5 border-0" style={{ maxWidth: "700px", borderRadius: "20px" }}>
+        <div className="card-body">
+          
+          {/* BAGIAN DATA DIRI (Ganti dengan data aslimu) */}
+          <h1 className="display-4 fw-bold text-primary mb-2">Septian Hady Putra</h1>
+          <h4 className="text-secondary fw-light mb-4">NIM: 535240212</h4>
+          
+          <hr className="my-4" />
+          
+          {/* BAGIAN TOPIK PROJECT */}
+          <div className="mb-5">
+            <h2 className="h4 fw-bold mb-3">🎵 Study Music Companion</h2>
+            <p className="text-muted">
+              Aplikasi sederhana untuk menyimpan daftar musik favorit (Lofi, Jazz, Piano) 
+              yang cocok menemani sesi belajar mahasiswa agar lebih fokus.
+            </p>
+            {/* Badges Teknologi */}
+            <div className="d-flex justify-content-center gap-2">
+              <span className="badge bg-dark">Next.js 15</span>
+              <span className="badge bg-primary">Bootstrap 5</span>
+              <span className="badge bg-warning text-dark">SQLite</span>
+            </div>
+          </div>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+          {/* TOMBOL NAVIGASI */}
+          <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            {/* Tombol ke halaman CRUD */}
+            <Link href="/study-music" className="btn btn-primary btn-lg px-4 gap-3">
+              Buka Playlist
+            </Link>
+            
+            {/* Tombol ke halaman API Explore (Soal No. 6) */}
+            <Link href="/explore" className="btn btn-outline-secondary btn-lg px-4">
+              Inspirasi API
+            </Link>
+          </div>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </div>
+      
+      {/* Footer Kecil */}
+      <footer className="mt-5 text-muted small">
+        &copy; 2025 Septian Hady Putra
       </footer>
-    </div>
+    </main>
   );
 }
